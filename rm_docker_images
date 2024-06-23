@@ -1,0 +1,13 @@
+- name: Hello World HTML Sample  
+  hosts: all  
+  become: yes  # 指示 Ansible 使用 sudo/su 来执行接下来的任务  
+  become_user: root  # 明确指定使用 root 用户来执行  
+  tasks:  
+    - name: Ensure unused Docker images are pruned  
+      docker_image_prune:  
+        force: yes  # 强制删除未使用的镜像，不询问确认  
+      register: pruned  
+  
+    - name: Output pruned images count  
+      debug:  
+        var: pruned.stdout_lines
