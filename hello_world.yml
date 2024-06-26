@@ -5,6 +5,6 @@
   tasks:  
     - name: Create Hello World HTML file  
       copy:  
-        content: "<html><body><h1>Hello World!</h1></body></html>"  
+        content: "<html><body><h1>你好时间，hello，goodobu!</h1></body></html>"  
         dest: /root/file.html  # 替换为你想要的路径和文件名  
         mode: '0644'  # 设置文件权限为 644（所有者读/写，组和其他读）
