@@ -1,0 +1,13 @@
+- name: Clean Hello World Docker Image
+  hosts: all
+  become: yes
+  become_user: root
+  tasks:
+    - name: Remove hello-world Docker image
+      docker_image:
+        name: hello-world
+        state: absent
+
+    - name: Output removal status
+      debug:
+        msg: "hello-world Docker image has been removed."
