@@ -2,7 +2,14 @@
   hosts: all
   become: yes
   become_user: root
+  vars:
+    ansible_python_interpreter: /usr/bin/python3  # 确保使用Python 3解释器
   tasks:
+    - name: Install Docker SDK for Python
+      pip:
+        name: docker
+        state: present
+
     - name: Remove hello-world Docker image
       docker_image:
         name: hello-world
